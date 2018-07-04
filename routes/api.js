@@ -54,14 +54,16 @@ router.post('/candidate', function(req, res, next){
 
 router.get('/candidate/:name', function(req, res, next){
   console.log('candidate id: ' + req.params.name);
-      UserCandidate.findOne({username: req.params.name}, function(err,candidate){
+      Candidate.findOne({username: req.params.name}, function(err,candidate){
         res.send(candidate);
   }).catch(next);
 });
 
-router.put('/candidate/:id', function(req, res, next){
-    Candidate.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(candidate){
+router.put('/candidate/:name', function(req, res, next){
+    Candidate.findOneAndUpdate({username: req.params.name}, req.body).then(function(){
+      Candidate.findOne({username: req.params.name}).then(function(candidate){
         res.send(candidate);
+      });
     }).catch(next);
 });
 
