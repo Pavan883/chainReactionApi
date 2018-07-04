@@ -62,7 +62,7 @@ router.get('/candidate/:id', function(req, res, next){
 });
 
 router.put('/candidate/:id', function(req, res, next){
-    Candidate.findByIdAndUpdate({_id: req.param.id} ,req.body).then(function(candidate){
+    Candidate.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(candidate){
         res.send(candidate);
     }).catch(next);
 });
@@ -74,8 +74,8 @@ router.post('/interview', function(req, res, next){
     }).catch(next);
 });
 
-router.post('/interview', function(req, res, next){
-    Interview.findByIdAndUpdate(req.body).then(function(interview){
+router.put('/interview/:id', function(req, res, next){
+    Interview.findByIdAndUpdate({_id: req.params.id} ,req.body).then(function(interview){
         res.send(interview);
     }).catch(next);
 });
