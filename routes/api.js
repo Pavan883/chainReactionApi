@@ -52,12 +52,10 @@ router.post('/candidate', function(req, res, next){
     }).catch(next);
 });
 
-router.get('/candidate/:id', function(req, res, next){
-  console.log('candidate id: ' + req.params.id);
-  User.findOne({name: req.params.id}, function(err,user){
-      UserCandidate.findById(user.id, function(err,candidate){
+router.get('/candidate/:name', function(req, res, next){
+  console.log('candidate id: ' + req.params.name);
+      UserCandidate.findOne({username: req.params.name}, function(err,candidate){
         res.send(candidate);
-      });
   }).catch(next);
 });
 
