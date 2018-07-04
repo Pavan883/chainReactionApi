@@ -16,7 +16,7 @@ router.get('/users/:id', function(req, res, next){
 
   router.get('/userbyname/:name', function(req, res, next){
     console.log('user id: ' + req.params.name);
-    User.findOne({name: req.params.name}, function(err,user){
+    User.findOne({username: req.params.name}, function(err,user){
         res.send(user);
     }).catch(next);
   });

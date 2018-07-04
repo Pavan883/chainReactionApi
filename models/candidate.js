@@ -3,9 +3,13 @@ const Schema = mongoose.Schema;
 
 
 const CandidateSchema = new Schema({
-    name: {
+    firstName: {
         type: String,
-        required: [true, 'Name field is required']
+        required: [true, 'first name field is required']
+    },
+    lastName: {
+      type: String,
+      required: [true, 'last name field is required']
     },
     age: {
         type: Number,
@@ -15,7 +19,7 @@ const CandidateSchema = new Schema({
         type: String,
         required: [true, 'Email field is required']
     },
-    gender: {
+    sex: {
       type: String,
       required: [true, 'Gender field is required']
     },
@@ -25,7 +29,15 @@ const CandidateSchema = new Schema({
     experience: {
       type: Number
     },
-    userid: {
+    username: {
+      type: String,
+      required: [true, 'User name is required']
+    },
+    employed: {
+      type: Boolean,
+      default: false
+    },
+    notes: {
       type: String
     }
 });
