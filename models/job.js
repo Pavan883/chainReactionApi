@@ -19,7 +19,7 @@ const JobSchema = new Schema({
   postdate: {
     type: Date,
     default: Date.now
-  },
+  }
 });
 
 const Job = mongoose.model('jobs', JobSchema);

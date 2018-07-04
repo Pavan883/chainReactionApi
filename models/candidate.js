@@ -7,16 +7,28 @@ const CandidateSchema = new Schema({
         type: String,
         required: [true, 'Name field is required']
     },
-    password: {
-        type: String,
-        required: [true, 'Password field is required']
+    age: {
+        type: Number,
+        required: [true, 'Age field is required']
     },
-    role: {
+    email: {
         type: String,
-        required: [true, 'Role field is required']
+        required: [true, 'Email field is required']
+    },
+    gender: {
+      type: String,
+      required: [true, 'Gender field is required']
+    },
+    skillset: {
+        type: [String]
+    },
+    experience: {
+      type: Number
+    },
+    userid: {
+      type: String
     }
-
 });
 
-const Candidate = mongoose.model('jobs', CandidateSchema);
+const Candidate = mongoose.model('candidate', CandidateSchema);
 module.exports = Candidate;
