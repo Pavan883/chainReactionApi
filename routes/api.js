@@ -80,4 +80,10 @@ router.put('/interview/:id', function(req, res, next){
     }).catch(next);
 });
 
+router.get('/interview:name', function(req, res, next){
+    Interview.findOne({username: req.params.name}).then(function(interview){
+        res.send(interview);
+    }).catch(next);
+});
+
 module.exports = router;

@@ -3,19 +3,21 @@ const Schema = mongoose.Schema;
 
 
 const InterviewSchema = new Schema({
-    userid: {
+    username: {
         type: String,
     },
-    jobid: {
-        type: Number,
+    jobId: {
+        type: String,
         required: [true, 'JobID field is required']
     },
     interviewdate: {
         type: Date,
-        required: [true, 'InterviewDate is required']
+        required: [true, 'InterviewDate is required'],
+        default: Date.now
     },
     interviewresult: {
-        type: String
+        type: String,
+        default: 'InProgress'
     },
     interviewfeedback: {
         type: String
